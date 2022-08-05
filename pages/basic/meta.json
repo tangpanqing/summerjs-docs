@@ -2,6 +2,6 @@
   "route": "Route",
   "request": "Request",
   "verify": "Verify",
-  "db": "Db",
+  "db": "Database",
   "env": "Env"
 }
