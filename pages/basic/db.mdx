@@ -1,1 +1,16 @@
-# Route
+# Db
+
+It's so easy that get or create database record. Different with some other framework, I strongly suggest
+
+## Add Record
+
+As you know, the request method of `Restful` style api can be `POST`,`GET`,`PUT`,`DELETE`,
+
+you can use some code like this to match it
+
+```js
+let city = new City();
+city.city_name = "london";
+city.city_type = 1;
+let id = ctx.table("city").insert(city);
+```
