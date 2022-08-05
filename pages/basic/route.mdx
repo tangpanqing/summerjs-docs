@@ -1,0 +1,29 @@
+# Route
+
+It's so easy that route request url to some program. As you see, we can use some code like this:
+
+```js
+App.any("/", async (ctx: Context) => "hello world");
+```
+
+in `any` method, the first param is request url and second param is your program function.
+
+the function name `any` means it can match all request method
+
+## How to match different request method
+
+As you know, the request method of restful style api can be `POST`,`GET`,`PUT`,`DELETE`,
+
+you can use some code like this to match it
+
+```js
+App.post("/", async (ctx: Context) => "this request's method is post");
+
+App.get("/", async (ctx: Context) => "this request's method is get");
+
+App.put("/", async (ctx: Context) => "this request's method is put");
+
+App.delete("/", async (ctx: Context) => "this request's method is delete");
+```
+
+## How to match dynamic request url
