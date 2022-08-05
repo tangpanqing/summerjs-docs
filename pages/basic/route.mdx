@@ -12,7 +12,7 @@ the function name `any` means it can match all request method
 
 ## How to match different request method
 
-As you know, the request method of restful style api can be `POST`,`GET`,`PUT`,`DELETE`,
+As you know, the request method of `Restful` style api can be `POST`,`GET`,`PUT`,`DELETE`,
 
 you can use some code like this to match it
 
@@ -27,3 +27,17 @@ App.delete("/", async (ctx: Context) => "this request's method is delete");
 ```
 
 ## How to match dynamic request url
+
+In some case, we want same function to match dynamic request url, for example:
+
+we want match request url `/city/paris` and `/city/london`, you can do it like this:
+
+```js
+App.any("/city/{city_name}", async (ctx: Context) => {
+  let city_name = ctx.getString("city_name");
+
+  return "the city name is " + city_name;
+});
+```
+
+As you see, we can get param form url by `ctx.getString` function
