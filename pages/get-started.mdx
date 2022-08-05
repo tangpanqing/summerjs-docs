@@ -3,11 +3,11 @@
 ## How to install
 
 You can install `SummerJS` so easy if you use `npm`:
-```
+```js
 npm i summerjs
 ```
 or, if you use `yarn`
-```
+```js
 yarn add summerjs
 ```
 
@@ -31,9 +31,9 @@ then, you will get some info like this `server is running at 5000`
 
 that ok, open your browser, visit [http://localhost:5000], you will see `hello world`
 
-### Use it with js
+### Use it with ts
 if you use ts, create file like `index.ts` in your project, then type content like this:
-```ts
+```js
 import {App, Context} from "summerjs";
 
 App.any("/", async (ctx: Context) => "hello world");
