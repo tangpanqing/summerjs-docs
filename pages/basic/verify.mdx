@@ -9,7 +9,10 @@ let city_name = ctx.getString("city_name", "", [v.lengBetween(10, 20)]);
 
 ## Other rule
 ### email
-判断某个值是否是email格式
+Determine whether a parameter is email
+```js
+let user_email = ctx.getNumber("user_email", "", [v.email]);
+```
 
 ### gt
 Determine whether a parameter is greater than a value

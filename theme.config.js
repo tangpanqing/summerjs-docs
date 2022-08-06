@@ -16,14 +16,14 @@ export default {
       <meta name="theme-color" content="#ffffff" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Language" content="en" />
-      <meta name="description" content="SummerJS: A Simple Backend Framework for JS/TS Developer" />
-      <meta name="og:description" content="SummerJS: A Simple Backend Framework for JS/TS Developer" />
+      <meta name="description" content="SummerJS: A Simple Backend Framework for javascript/typescript Developer" />
+      <meta name="og:description" content="SummerJS: A Simple Backend Framework for javascript/typescript Developer" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content="https://nextra.vercel.app/og.png" />
       <meta name="twitter:site:domain" content="www.summerjs.net" />
       <meta name="twitter:url" content="https://www.summerjs.net" />
-      <meta name="og:title" content="SummerJS: A Simple Backend Framework for JS/TS Developer" />
-      <meta name="og:image" content="https://nextra.vercel.app/og.png" />
+      <meta name="og:title" content="SummerJS: A Simple Backend Framework for javascript/typescript Developer" />
+      <meta name="og:image" content="https://www.summerjs.net/og.png" />
       <meta name="apple-mobile-web-app-title" content="SummerJS" />
       <link
         rel="apple-touch-icon"

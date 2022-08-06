@@ -1,16 +1,64 @@
 # Database
 
-It's so easy that get or create database record. Different with some other framework, I strongly suggest
+It's so easy that get or create database record. Different with some other framework, I strongly suggest you defined model first.
 
-## Add Record
-
-As you know, the request method of `Restful` style api can be `POST`,`GET`,`PUT`,`DELETE`,
-
-you can use some code like this to match it
-
+if your database has a table `city`, and `ddl` is this:
+```sql
+CREATE TABLE `city` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `city_name` varchar(40) NOT NULL DEFAULT '',
+  `city_type` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+```
+then you can create file `city.ts` then defined `City` model like this:
 ```js
-let city = new City();
-city.city_name = "london";
-city.city_type = 1;
-let id = await ctx.table("city").insert(city);
+export default class City {
+    id: number | undefined = undefined;
+    city_name: string | undefined = undefined;
+    city_type: number | undefined = undefined;
+}
+````
+mark sure the table's field name same as the model's prop name
+## Add Record
+`summerjs` suggest you use model object when you want add record
+
+then use `insert` function to add it into database
+```js
+import {App, Context} from "summerjs";
+import City from "./model/city";
+
+App.any("/city/add", async (ctx: Context) => {
+  let city = new City();
+  city.city_name = "london";
+  city.city_type = 1;
+  city.id = await ctx.table(city).insert(city);
+
+  return city;
+});
+
+App.run();
+```
+
+## Find Record
+
+`summerjs` suggest you use model object as query condition
+
+then use `findAll` or `findOne` function to find Record
+
+oh, make sure add Model type in param of `findAll` or `findOne` function, for get correct result type
+```js
+import {App, Context} from "summerjs";
+import City from "./model/city";
+
+App.any("/city/query", async (ctx: Context) => {
+  let city = new City();
+  city.city_type = 1;
+
+  let list = await ctx.table(city).where(city).findAll(City);
+
+  return list;
+});
+
+App.run();
 ```
