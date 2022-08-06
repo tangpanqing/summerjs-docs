@@ -10,7 +10,7 @@ in `any` method, the first param is request url and second param is your program
 
 the function name `any` means it can match all request method
 
-## How to match different request method
+## How to match request method
 
 As you know, the request method of `Restful` style api can be `POST`,`GET`,`PUT`,`DELETE`,
 
@@ -26,7 +26,7 @@ App.put("/", async (ctx: Context) => "this request's method is put");
 App.delete("/", async (ctx: Context) => "this request's method is delete");
 ```
 
-## How to match dynamic request url
+## How to match request url
 
 In some case, we want same function to match dynamic request url, for example:
 

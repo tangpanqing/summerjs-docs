@@ -12,5 +12,5 @@ you can use some code like this to match it
 let city = new City();
 city.city_name = "london";
 city.city_type = 1;
-let id = ctx.table("city").insert(city);
+let id = await ctx.table("city").insert(city);
 ```
