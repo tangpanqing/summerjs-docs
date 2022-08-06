@@ -20,6 +20,7 @@ export default class City {
 }
 ````
 mark sure the table's field name same as the model's prop name
+
 ## Add Record
 `summerjs` suggest you use model object when you want add record
 
@@ -58,6 +59,52 @@ App.any("/city/query", async (ctx: Context) => {
   let list = await ctx.table(city).where(city).findAll(City);
 
   return list;
+});
+
+App.run();
+```
+
+## Update Record
+
+`summerjs` suggest you use model object as query condition
+
+then use `update` function to update Record
+
+```js
+import {App, Context} from "summerjs";
+import City from "./model/city";
+
+App.any("/city/query", async (ctx: Context) => {
+  let city = new City();
+  city.city_type = 1;
+
+  let update_data = new City();
+  update_data.city_type = 2;
+
+  let count = await ctx.table(city).where(city).update(update_data);
+
+  return {count};
+});
+
+App.run();
+```
+
+## Delete Record
+
+`summerjs` suggest you use model object as query condition
+
+then use `delete` function to delete Record
+
+```js
+import {App, Context} from "summerjs";
+import City from "./model/city";
+
+App.any("/city/query", async (ctx: Context) => {
+  let city = new City();
+  city.city_type = 1;
+
+  let count = await ctx.table(city).where(city).delete();
+  return {count};
 });
 
 App.run();
