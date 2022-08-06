@@ -11,7 +11,7 @@ CREATE TABLE `city` (
   PRIMARY KEY (`id`),
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 ```
-then you can create file `city.ts` then defined `City` model like this:
+then you can create file `City.ts` then defined `City` model like this:
 ```js
 export default class City {
     id: number | undefined = undefined;
@@ -40,6 +40,10 @@ App.any("/city/add", async (ctx: Context) => {
 
 App.run();
 ```
+gen sql may like this
+```sql
+INSERT INOT city (id, city_name, city_type) VALUES (null, 'london', 1)
+```
 
 ## Find Record
 
@@ -50,7 +54,7 @@ then use `findAll` or `findOne` function to find Record
 oh, make sure add Model type in param of `findAll` or `findOne` function, for get correct result type
 ```js
 import {App, Context} from "summerjs";
-import City from "./model/city";
+import City from "./model/City";
 
 App.any("/city/query", async (ctx: Context) => {
   let city = new City();
@@ -63,6 +67,10 @@ App.any("/city/query", async (ctx: Context) => {
 
 App.run();
 ```
+gen sql may like this
+```sql
+SELECT * FROM city WHERE city_type = 1
+```
 
 ## Update Record
 
@@ -72,7 +80,7 @@ then use `update` function to update Record
 
 ```js
 import {App, Context} from "summerjs";
-import City from "./model/city";
+import City from "./model/City";
 
 App.any("/city/query", async (ctx: Context) => {
   let city = new City();
@@ -88,6 +96,10 @@ App.any("/city/query", async (ctx: Context) => {
 
 App.run();
 ```
+gen sql may like this
+```sql
+UPDATE city SET city_type = 2 WHERE city_type = 1
+```
 
 ## Delete Record
 
@@ -97,7 +109,7 @@ then use `delete` function to delete Record
 
 ```js
 import {App, Context} from "summerjs";
-import City from "./model/city";
+import City from "./model/City";
 
 App.any("/city/query", async (ctx: Context) => {
   let city = new City();
@@ -108,4 +120,8 @@ App.any("/city/query", async (ctx: Context) => {
 });
 
 App.run();
+```
+gen sql may like this
+```sql
+DELETE FROM city WHERE city_type = 1
 ```
