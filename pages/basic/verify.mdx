@@ -1,1 +1,83 @@
-# Route
+# Verify
+
+## Basic
+```js
+import {Verify as v} from "summerjs";
+
+let city_name = ctx.getString("city_name", "", [v.lengBetween(10, 20)]);
+```
+
+## Other rule
+### email
+判断某个值是否是email格式
+
+### gt
+Determine whether a parameter is greater than a value
+```js
+let count = ctx.getNumber("count", 0, [v.gt(10)]);
+```
+### lt
+Determine whether a parameter is less than a value
+```js
+let count = ctx.getNumber("count", 0, [v.lt(10)]);
+```
+
+### gte
+Determine whether a parameter is greater than or equals a value
+```js
+let count = ctx.getNumber("count", 0, [v.gte(10)]);
+```
+
+### lte
+Determine whether a parameter is less than or equals a value
+```js
+let count = ctx.getNumber("count", 0, [v.lte(10)]);
+```
+
+### in
+Determine whether a parameter is in some value
+```js
+let num = ctx.getNumber("num", 0, [v.in(1, 3, 5)]);
+```
+
+### between
+Determine whether a parameter is between two value
+```js
+let num = ctx.getNumber("num", 0, [v.between(3, 5)]);
+```
+
+### lengthGt
+Determine whether the length of a parameter is greater than a value
+```js
+let name = ctx.getString("name", 0, [v.lengthGt(10)]);
+```
+
+### lengthLt
+Determine whether the length of a parameter is less than a value
+```js
+let name = ctx.getString("name", 0, [v.lengthLt(10)]);
+```
+
+### lengthGte
+Determine whether the length of a parameter is greater than or equals a value
+```js
+let name = ctx.getString("name", 0, [v.lengthGte(10)]);
+```
+
+### lengthLte
+Determine whether the length of a parameter is less than or equals a value
+```js
+let name = ctx.getString("name", 0, [v.lengthLte(10)]);
+```
+
+### lengthIn
+Determine whether the length of a parameter is in some value
+```js
+let name = ctx.getString("name", 0, [v.lengthIn(1, 3, 5)]);
+```
+
+### lengthBetween
+Determine whether the length of a parameter is between two value
+```js
+let name = ctx.getString("name", 0, [v.lengthBetween(3, 5)]);
+```
