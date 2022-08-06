@@ -26,7 +26,7 @@ mark sure the table's field name same as the model's prop name
 then use `insert` function to add it into database
 ```js
 import {App, Context} from "summerjs";
-import City from "./model/city";
+import City from "./model/City";
 
 App.any("/city/add", async (ctx: Context) => {
   let city = new City();
